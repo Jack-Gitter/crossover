@@ -7,7 +7,6 @@ function Grid() {
     const {footballTeams, baseballTeams} = useSelector((store) => store.sportsInfoReducer)
     // if the value passed in from props is football, get the football teams in the reducer
     // then get the images that correspond to those teams, and assign them to variables and display them
-
     // use the store to retrieve the team names, then use the map to get the images
 
   return (

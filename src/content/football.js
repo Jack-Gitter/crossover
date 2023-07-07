@@ -1,13 +1,15 @@
 import { useEffect } from "react";
 import Grid from "./grid";
+import { useDispatch } from "react-redux";
+import { setFootballTeams } from "../state/reducer/sportsreducer";
 
 function Football() {
 
-    
- // in the use effect, generate the random teams that are going to be in the grid
+  const dispatch = useDispatch()
   useEffect(() => {
-    console.log('football')
+    dispatch(setFootballTeams('hi'));
   }, [])
+
 
   return (
       <>

@@ -10,9 +10,19 @@ const sportsInfo = createSlice({
         baseballTeams: [baseballTeams],
         userGuesses: [[]]
     },
+    reducers: {
+        setFootballTeams(state, action) {
+            state.footballTeams = action.payload
+            console.log(action.payload)
+        },
+        setBaseballTeams(state, action) {
+            state.baseballTeams = action.payload
+        }
+    },
     extraReducers: {
         [checkFootballPlayerThunk.fulfilled]:
         (state, {payload}) => {
+            // set user guesses here (like correct/incorrect)
             state.teams = payload
         }, 
         [checkFootballPlayerThunk.rejected]: 
@@ -22,4 +32,5 @@ const sportsInfo = createSlice({
     }
 })
 
+export const {setFootballTeams, setBaseballTeams} = sportsInfo.actions
 export default sportsInfo.reducer

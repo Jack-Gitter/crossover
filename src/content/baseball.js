@@ -9,9 +9,15 @@ function Baseball() {
   }, [])
 
   return (
-      <div>
-        <Grid sport='baseball'/>
-      </div>
+      <>
+          <div className="row">
+            <div className="col"></div>
+              <div className="col">
+                <Grid sport='baseball'/>
+              </div>
+            <div className="col"></div>
+          </div>
+      </>
   );
 }
 export default Baseball

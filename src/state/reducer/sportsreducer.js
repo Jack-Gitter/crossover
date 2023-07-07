@@ -12,8 +12,14 @@ const sportsInfo = createSlice({
     },
     reducers: {
         setFootballTeams(state, action) {
-            state.footballTeams = action.payload
-            console.log(action.payload)
+            state.footballTeams = ['Arizona Cardinals',
+            'Baltimore Ravens',
+            'Atlanta Falcons',
+            'Buffalo Bills',
+            'Carolina Panthers',
+            'Cincinnati Bengals',]
+            //state.footballTeams = action.payload
+            //console.log(action.payload)
         },
         setBaseballTeams(state, action) {
             state.baseballTeams = action.payload

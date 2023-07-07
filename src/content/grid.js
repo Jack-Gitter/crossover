@@ -1,18 +1,20 @@
 import { useEffect } from "react";
+import { useSelector } from "react-redux";
+import { footballteamsmap } from "../state/reducer/footballteamsmap";
 
 function Grid() {
-    
+   
+    const {footballTeams, baseballTeams} = useSelector((store) => store.sportsInfoReducer)
     // if the value passed in from props is football, get the football teams in the reducer
     // then get the images that correspond to those teams, and assign them to variables and display them
 
-  useEffect(() => {
-  })
+    // use the store to retrieve the team names, then use the map to get the images
 
   return (
       <div>
             <div className="row row-height justify-content-center">
                 <div className="col col-lg-3 p-0"></div>
-                <div className="col col-lg-3 p-0"><img className='team-picture' src={require('../pics/football/cardinals.png')}></img></div>
+                <div className="col col-lg-3 p-0"><img className='team-picture' src={footballteamsmap[footballTeams[0]]}></img></div>
                 <div className="col col-lg-3 p-0"><img className='team-picture' src={require('../pics/football/jets.png')}></img></div>
                 <div className="col col-lg-3 p-0"><img className='team-picture' src={require('../pics/football/seahawks.png')}></img></div>
             </div>

@@ -12,6 +12,11 @@
     height:100%;
 }
 
+.team-picture {
+    width:100%;
+    height:100%;
+}
+
 .row-height {
     min-height:50px;
 }

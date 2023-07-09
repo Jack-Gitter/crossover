@@ -1,26 +1,24 @@
 import { useEffect } from "react";
 import Grid from "./grid";
 import { useDispatch } from "react-redux";
-import { setFootballTeams } from "../state/reducer/sportsreducer";
+import { generateValidFootballTeamCombinationsThunk } from "../services/thunks";
 
 function Football() {
 
   const dispatch = useDispatch()
   useEffect(() => {
-    dispatch(setFootballTeams('hi'));
+    dispatch(generateValidFootballTeamCombinationsThunk());
   }, [])
-
 
   return (
       <>
-      <div className="row">
+      <div className="row mt-5">
         <div className="col"></div>
           <div className="col">
-            <Grid sport='football'/>
+            <Grid/>
           </div>
         <div className="col"></div>
       </div>
-
       </>
   );
 }

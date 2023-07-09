@@ -1,42 +1,21 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { checkFootballPlayerThunk } from "../../services/thunks";
-import { footballTeams } from "./footballteams";
-import { baseballTeams } from "./baseballteams";
+import {generateValidFootballTeamCombinationsThunk} from '../../services/thunks'
 
 const sportsInfo = createSlice({
     name: "sportsInfo",
     initialState: {
-        footballTeams: [footballTeams],
-        baseballTeams: [baseballTeams],
+        gridTeams: [['hi', 'hey', 'hello'], 
+                         ['someone', 'somethign', 'testing']],
         userGuesses: [[]]
     },
-    reducers: {
-        setFootballTeams(state, action) {
-            state.footballTeams = ['Arizona Cardinals',
-            'Baltimore Ravens',
-            'Atlanta Falcons',
-            'Buffalo Bills',
-            'Carolina Panthers',
-            'Cincinnati Bengals',]
-            //state.footballTeams = action.payload
-            //console.log(action.payload)
-        },
-        setBaseballTeams(state, action) {
-            state.baseballTeams = action.payload
-        }
-    },
     extraReducers: {
-        [checkFootballPlayerThunk.fulfilled]:
-        (state, {payload}) => {
-            // set user guesses here (like correct/incorrect)
-            state.teams = payload
-        }, 
-        [checkFootballPlayerThunk.rejected]: 
-        (state, {payload}) => {
-            console.log('request failed')
-        }
-    }
+        [generateValidFootballTeamCombinationsThunk.fulfilled]: 
+            (state, {payload}) => {
+                console.log('payload is')
+                console.log(payload)
+                state.gridTeams = payload;
+            },
+    },
 })
 
-export const {setFootballTeams, setBaseballTeams} = sportsInfo.actions
 export default sportsInfo.reducer
